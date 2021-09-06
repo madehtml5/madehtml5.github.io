@@ -66,5 +66,9 @@
 			f(".slide-buttons li.active").removeClass("active");
 			f(".slide-buttons li:nth-child(11)").addClass("active")
 		})
+		f(".slide-buttons li:nth-child(12)").on("mouseenter", function () {
+			f(".slide-buttons li.active").removeClass("active");
+			f(".slide-buttons li:nth-child(12)").addClass("active")
+		})
 	})
 })(jQuery);
