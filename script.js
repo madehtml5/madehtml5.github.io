@@ -70,5 +70,37 @@
 			f(".slide-buttons li.active").removeClass("active");
 			f(".slide-buttons li:nth-child(12)").addClass("active")
 		})
+		f(".slide-buttons li:nth-child(13)").on("mouseenter", function () {
+			f(".slide-buttons li.active").removeClass("active");
+			f(".slide-buttons li:nth-child(12)").addClass("active")
+		})
+		f(".slide-buttons li:nth-child(14)").on("mouseenter", function () {
+			f(".slide-buttons li.active").removeClass("active");
+			f(".slide-buttons li:nth-child(12)").addClass("active")
+		})
+		f(".slide-buttons li:nth-child(15)").on("mouseenter", function () {
+			f(".slide-buttons li.active").removeClass("active");
+			f(".slide-buttons li:nth-child(12)").addClass("active")
+		})
+		f(".slide-buttons li:nth-child(16)").on("mouseenter", function () {
+			f(".slide-buttons li.active").removeClass("active");
+			f(".slide-buttons li:nth-child(12)").addClass("active")
+		})
+		f(".slide-buttons li:nth-child(17)").on("mouseenter", function () {
+			f(".slide-buttons li.active").removeClass("active");
+			f(".slide-buttons li:nth-child(12)").addClass("active")
+		})
+		f(".slide-buttons li:nth-child(18)").on("mouseenter", function () {
+			f(".slide-buttons li.active").removeClass("active");
+			f(".slide-buttons li:nth-child(12)").addClass("active")
+		})
+		f(".slide-buttons li:nth-child(19)").on("mouseenter", function () {
+			f(".slide-buttons li.active").removeClass("active");
+			f(".slide-buttons li:nth-child(12)").addClass("active")
+		})
+		f(".slide-buttons li:nth-child(20)").on("mouseenter", function () {
+			f(".slide-buttons li.active").removeClass("active");
+			f(".slide-buttons li:nth-child(12)").addClass("active")
+		})
 	})
 })(jQuery);
