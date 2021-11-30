@@ -113,25 +113,25 @@ width: 25%;
 		color: #fff;
 }
 .card:nth-child(7n+7) {
-background: #F2674A;
+background: #b552ff;
 }
 .card:nth-child(7n+6) {
-background: #BFC4D8;
+background: #fffdfd;
 }
 .card:nth-child(7n+5) {
-background: #DDECE7;
+background: #8bcaf7;
 }
 .card:nth-child(7n+4) {
-background: #FCF0BC;
+background: #f1d042;
 }
 .card:nth-child(7n+3) {
-background: #B8B8B8;
+background: #fad;
 }
 .card:nth-child(7n+2) {
 background: #83C9B1;
 }
 .card:nth-child(7n+1) {
-background: #FFD4CE;
+background: #d16859;
 }
 .card p{
 	    font-size: 36px;
