@@ -82,7 +82,7 @@ ul {
 
 .section {
 	display: flex;
-	width: 90%;
+	width: 70%;
 	margin: 20px auto;
 	flex-wrap: wrap;
 	align-items: center;
@@ -224,5 +224,9 @@ ul {
 		-o-animation: none!important;
 		-ms-animation: none!important;
 		animation: none!important
+	}
+	.section {
+	display: flex;
+	width: 90%;
 	}
 }
