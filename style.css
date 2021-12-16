@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
 html,
 body {
 	height: 100%;
-	font-family: 'Bebas Neue', cursive;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
 	font-display: swap;
 	background-color: #727272;
 	color: #fff;
