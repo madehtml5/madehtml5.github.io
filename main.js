@@ -7,11 +7,6 @@
  * Зараз зробимо!
  * Включаю магію HTML5...
  */
-          
- body {
-  background-color: #1a1c24; color: #fff;
-  -webkit-font-smoothing: subpixel-antialiased;
- }
  
  pre { 
   position: fixed; width: 60%;
@@ -32,13 +27,8 @@
  * Більше HTML5!!!
  */
 
-.header-section,
-.page-top-section,
-.footer-section {
-  opacity: 1;
-  }
-pre {
- display: none;
+.preloader, pre {
+display: none;
  }
  
  

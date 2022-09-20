@@ -4,11 +4,13 @@ body {
   height: 100%;
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-display: swap;
+   background-color: #1a1c24; color: #fff;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
-.header-section,
-.page-top-section,
-.footer-section {
-  opacity: 0;
+.preloader{
+  position: fixed;
+  z-index: 999;
+  background-color: #fff;
 }
 .comment {
   color: #707e84;
