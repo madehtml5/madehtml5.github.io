@@ -76,21 +76,7 @@ writeStyleChar = function(which) {
 
 "use strict";
 (function (a) {
-	a("#menu-canvas-show").on("click", function () {
-		a(".offcanvas-menu-wrapper").fadeIn(400, function () {
-			a(".offcanvas-menu-wrapper").addClass("active")
-		}).css("display", "flex")
-	});
-	a("#menu-canvas-close").on("click", function () {
-		a(".offcanvas-menu-wrapper").removeClass("active").delay(1100);
-		a(".offcanvas-menu-wrapper").fadeOut(400)
-	});
-	a(".set-bg").each(function () {
-		var c = a(this).data("setbg");
-		a(this).css("background-image", "url(" + c + ")")
-	});
-
-	function b() {
+function b() {
 		if (a(window).width() > 767) {
 			var c = a(".header-section").innerHeight();
 			var d = a(".footer-section").innerHeight();
