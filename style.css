@@ -622,7 +622,7 @@ ol {
   .header-section,
   .footer-section,
   .page-top-section {
-    opacity: 1 !important;
+    opacity: 1!important;
   }
   .page-top-section {
     display: flex;

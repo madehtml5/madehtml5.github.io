@@ -4,8 +4,8 @@
  /*
  * О привіт!
  * Ви на сайт?
- * Зараз зробимо
- * Включаю магію HTML5
+ * Зараз зробимо!
+ * Включаю магію HTML5...
  */
           
  body {
@@ -35,7 +35,9 @@
  display: none;
  }
  
-.main {
+.header-section,
+.page-top-section,
+.footer-section {
   opacity: 1;
   }
  
