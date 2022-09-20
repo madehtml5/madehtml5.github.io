@@ -11,6 +11,8 @@ body {
   position: fixed;
   z-index: 999;
   background-color: #fff;
+  width: 100%;
+  height: 100vh;
 }
 .comment {
   color: #707e84;
@@ -631,7 +633,7 @@ ol {
     align-items: center;
     min-height: 75vh;
   }
-  pre {
+  pre, .preloader {
     display: none !important;
     z-index: -99;
     height: 0 !important;
