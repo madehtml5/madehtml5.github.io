@@ -31,15 +31,16 @@
  /* 
  * Більше HTML5!!!
  */
- pre {
- display: none;
- }
- 
+
 .header-section,
 .page-top-section,
 .footer-section {
   opacity: 1;
   }
+pre {
+ display: none;
+ }
+ 
  
   `;
 openComment = false;
