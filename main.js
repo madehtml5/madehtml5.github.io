@@ -1,99 +1,112 @@
-(function() {
-  var openComment, styles, time, writeStyleChar, writeStyles;
- styles = `
- /*
- * О привіт!
- * Ви на сайт?
- * Зараз зробимо!
- * Включаю магію HTML5...
- */
- 
- pre { 
-  position: fixed; width: 60%;
-  top: 30px; bottom: 30px; left: 20%;
-  transition: left 500ms;
-  overflow: auto;
-  background-color: #313744; color: #a6c3d4;
-  padding: 24px 12px;
-  box-sizing: border-box;
- }
- pre em:not(.comment) { font-style: normal; }
- /* 
- * Тепер збудуємо сайт...
- */ 
- 
- pre { left: 20%; }
- /* 
- * Більше HTML5!!!
- */
+var cursor = {
+    delay: 8,
+    _x: 0,
+    _y: 0,
+    endX: (window.innerWidth / 2),
+    endY: (window.innerHeight / 2),
+    cursorVisible: true,
+    cursorEnlarged: false,
+    $dot: document.querySelector('.cursor-dot'),
+    $outline: document.querySelector('.cursor-dot-outline'),
+    
+    init: function() {
+        // Set up element sizes
+        this.dotSize = this.$dot.offsetWidth;
+        this.outlineSize = this.$outline.offsetWidth;
+        
+        this.setupEventListeners();
+        this.animateDotOutline();
+    },
+    
+    
+    setupEventListeners: function() {
+        var self = this;
+        
+        // Anchor hovering
+        document.querySelectorAll('a').forEach(function(el) {
+            el.addEventListener('mouseover', function() {
+                self.cursorEnlarged = true;
+                self.toggleCursorSize();
+            });
+            el.addEventListener('mouseout', function() {
+                self.cursorEnlarged = false;
+                self.toggleCursorSize();
+            });
+        });
+        
+        // Click events
+        document.addEventListener('mousedown', function() {
+            self.cursorEnlarged = true;
+            self.toggleCursorSize();
+        });
+        document.addEventListener('mouseup', function() {
+            self.cursorEnlarged = false;
+            self.toggleCursorSize();
+        });
+  
+  
+        document.addEventListener('mousemove', function(e) {
+            // Show the cursor
+            self.cursorVisible = true;
+            self.toggleCursorVisibility();
 
-.preloader, pre {
-display: none;
- }
- 
- 
-  `;
-openComment = false;
-writeStyleChar = function(which) {
-    if (which === '/' && openComment === false) {
-      openComment = true;
-      styles = $('#style-text').html() + which;
-    } else if (which === '/' && openComment === true) {
-      openComment = false;
-      styles = $('#style-text').html().replace(/(\/[^\/]*\*)$/, '<em class="comment">$1/</em>');
-    } else if (which === ':') {
-      styles = $('#style-text').html().replace(/([a-zA-Z- ^\n]*)$/, '<em class="key">$1</em>:');
-    } else if (which === ';') {
-      styles = $('#style-text').html().replace(/([^:]*)$/, '<em class="value">$1</em>;');
-    } else if (which === '{') {
-      styles = $('#style-text').html().replace(/(.*)$/, '<em class="selector">$1</em>{');
-    } else {styles = $('#style-text').html() + which;}
-    $('#style-text').html(styles);
-    return $('#style-tag').append(which);
-  };
-  writeStyles = function(message, index, interval) {
-    var pre;
-    if (index < message.length) {
-      pre = document.getElementById('style-text');
-      pre.scrollTop = pre.scrollHeight;
-      writeStyleChar(message[index++]);
-      return setTimeout((function() {
-        return writeStyles(message, index, interval);
-      }), interval);
+            // Position the dot
+            self.endX = e.pageX;
+            self.endY = e.pageY;
+            self.$dot.style.top = self.endY + 'px';
+            self.$dot.style.left = self.endX + 'px';
+        });
+        
+        // Hide/show cursor
+        document.addEventListener('mouseenter', function(e) {
+            self.cursorVisible = true;
+            self.toggleCursorVisibility();
+            self.$dot.style.opacity = 1;
+            self.$outline.style.opacity = 1;
+        });
+        
+        document.addEventListener('mouseleave', function(e) {
+            self.cursorVisible = true;
+            self.toggleCursorVisibility();
+            self.$dot.style.opacity = 0;
+            self.$outline.style.opacity = 0;
+        });
+    },
+    
+    animateDotOutline: function() {
+        var self = this;
+        
+        self._x += (self.endX - self._x) / self.delay;
+        self._y += (self.endY - self._y) / self.delay;
+        self.$outline.style.top = self._y + 'px';
+        self.$outline.style.left = self._x + 'px';
+        
+        requestAnimationFrame(this.animateDotOutline.bind(self));
+    },
+    
+    toggleCursorSize: function() {
+        var self = this;
+        
+        if (self.cursorEnlarged) {
+            self.$dot.style.transform = 'translate(-50%, -50%) scale(0.75)';
+            self.$outline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        } else {
+            self.$dot.style.transform = 'translate(-50%, -50%) scale(1)';
+            self.$outline.style.transform = 'translate(-50%, -50%) scale(1)';
+        }
+    },
+    
+    toggleCursorVisibility: function() {
+        var self = this;
+        
+        if (self.cursorVisible) {
+            self.$dot.style.opacity = 1;
+            self.$outline.style.opacity = 1;
+        } else {
+            self.$dot.style.opacity = 0;
+            self.$outline.style.opacity = 0;
+        }
     }
-  };
-  time = window.innerWidth <= 578 ? 1 : 20;
-  writeStyles(styles, 0, time);
-}).call(this);
+}
 
-
-"use strict";
-(function (a) {
-function b() {
-		if (a(window).width() > 767) {
-			var c = a(".header-section").innerHeight();
-			var d = a(".footer-section").innerHeight();
-			var e = a(window).innerHeight();
-			var f = ((e) - (c + d + 5));
-			a(".hero-item").each(function () {
-				a(this).height(f)
-			})
-		}
-	}
-	if (a(window).width() > 767) {
-		b();
-		a(window).resize(function () {
-			b()
-		})
-	}
-	a(".hero-slider").owlCarousel({
-		loop: true,
-		nav: true,
-		dots: false,
-		navText: ['<i class="bi bi-arrow-left"></i>', '<i class="bi bi-arrow-right"></i>'],
-		mouseDrag: false,
-		animateOut: "fadeOut",
-		animateIn: "fadeIn",
-		items: 1,
-	})
-})(jQuery);
+cursor.init();
